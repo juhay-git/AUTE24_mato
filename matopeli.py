@@ -6,7 +6,7 @@ from PySide6.QtWidgets import QApplication, QGraphicsView, QGraphicsScene, QMenu
 from PySide6.QtGui import QPainter, QPen, QBrush, QFont
 from PySide6.QtCore import Qt, QTimer
 # vakiot
-SOLUN_KOKO = 20
+SOLUN_KOKO = 40
 RUUDUKON_LEVEYS = 20
 RUUDUKON_KORKEUS = 15
 
@@ -55,11 +55,23 @@ class Matopeli(QGraphicsView):
         for osa in self.mato:
             x, y = osa
             self.scene().addRect(x * SOLUN_KOKO, y * SOLUN_KOKO, SOLUN_KOKO, SOLUN_KOKO, QPen(Qt.black), QBrush(Qt.red))
+
+        rx,ry = self.ruoka
+        self.scene().addRect(rx * SOLUN_KOKO, ry * SOLUN_KOKO, SOLUN_KOKO, SOLUN_KOKO, QPen(Qt.black), QBrush(Qt.green))
+
         
     def kaynnista_peli(self):
         self.suunta = Qt.Key_Right
         self.mato = [(5, 5), (5, 6), (5, 7)]
         self.timer.start(300)
+        self.ruoka = self.uusi_ruoka()
+
+    def uusi_ruoka(self):
+        while True:
+            x = random.randint(0, RUUDUKON_LEVEYS -1)
+            y = random.randint(0, RUUDUKON_KORKEUS -1)
+            if (x,y) not in self.mato:
+                return x,y
 
 def main():
     sovellus = QApplication(sys.argv)
