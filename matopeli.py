@@ -44,6 +44,10 @@ class Matopeli(QGraphicsView):
             uusi_paa = (paa_x, paa_y - 1)
         elif self.suunta == Qt.Key_Down:
             uusi_paa = (paa_x, paa_y + 1)
+
+        if uusi_paa in self.mato:
+            self.timer.stop()
+            return
      
         self.mato.insert(0, uusi_paa)
 
