@@ -13,7 +13,7 @@ RUUDUKON_KORKEUS = 15
 class Matopeli(QGraphicsView):
     def __init__(self):
         super().__init__()
-        self.pisteen = 0
+        self.pisteet = 0
         self.setScene(QGraphicsScene(self))
         self.setSceneRect(0, 0, SOLUN_KOKO * RUUDUKON_LEVEYS, SOLUN_KOKO * RUUDUKON_KORKEUS)
         self.timer = QTimer(self)
