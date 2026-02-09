@@ -69,6 +69,8 @@ class Matopeli(QGraphicsView):
         rx,ry = self.ruoka
         self.scene().addRect(rx * SOLUN_KOKO, ry * SOLUN_KOKO, SOLUN_KOKO, SOLUN_KOKO, QPen(Qt.black), QBrush(Qt.green))
 
+        self.scene().addText(f"Pisteet: {self.pisteet}", QFont("Arial",12))
+
         
     def kaynnista_peli(self):
         self.suunta = Qt.Key_Right
