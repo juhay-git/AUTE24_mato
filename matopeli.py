@@ -13,6 +13,7 @@ RUUDUKON_KORKEUS = 15
 class Matopeli(QGraphicsView):
     def __init__(self):
         super().__init__()
+        self.pisteen = 0
         self.setScene(QGraphicsScene(self))
         self.setSceneRect(0, 0, SOLUN_KOKO * RUUDUKON_LEVEYS, SOLUN_KOKO * RUUDUKON_KORKEUS)
         self.timer = QTimer(self)
@@ -43,9 +44,14 @@ class Matopeli(QGraphicsView):
             uusi_paa = (paa_x, paa_y - 1)
         elif self.suunta == Qt.Key_Down:
             uusi_paa = (paa_x, paa_y + 1)
-        
-        self.mato.insert(0, uusi_paa) 
-        self.mato.pop()
+     
+        self.mato.insert(0, uusi_paa)
+
+        if uusi_paa == self.ruoka:
+            self.ruoka = self.uusi_ruoka()
+            self.pisteet += 1
+        else:
+            self.mato.pop()
         
         self.piirra_peli()
 
