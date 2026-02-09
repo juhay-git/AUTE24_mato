@@ -1,4 +1,4 @@
-# git clone https://github.com/juhay-git/TITE25_matopeli
+# git clone https://github.com/juhay-git/AUTE24_mato
 # 'pip install PySide6' tarvitaan 
 import sys
 import random
