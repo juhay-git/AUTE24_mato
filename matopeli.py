@@ -45,7 +45,7 @@ class Matopeli(QGraphicsView):
         elif self.suunta == Qt.Key_Down:
             uusi_paa = (paa_x, paa_y + 1)
 
-        if uusi_paa in self.mato:
+        if uusi_paa in self.mato or uusi_paa[0] < 0 or uusi_paa[0] >= RUUDUKON_LEVEYS or uusi_paa[1]<0 or uusi_paa[1] >= RUUDUKON_KORKEUS:
             self.timer.stop()
             return
      
