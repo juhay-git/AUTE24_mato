@@ -67,7 +67,7 @@ class Matopeli(QGraphicsView):
             self.scene().addRect(x * SOLUN_KOKO, y * SOLUN_KOKO, SOLUN_KOKO, SOLUN_KOKO, QPen(Qt.black), QBrush(Qt.red))
 
         rx,ry = self.ruoka
-        self.scene().addRect(rx * SOLUN_KOKO, ry * SOLUN_KOKO, SOLUN_KOKO, SOLUN_KOKO, QPen(Qt.black), QBrush(Qt.green))
+        self.scene().addRect(rx * SOLUN_KOKO, ry * SOLUN_KOKO, SOLUN_KOKO, SOLUN_KOKO, QPen(Qt.black), QBrush(Qt.blue))
 
         self.scene().addText(f"Pisteet: {self.pisteet}", QFont("Arial",12))
 
